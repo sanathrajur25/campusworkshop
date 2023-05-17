@@ -92,6 +92,7 @@ $(document).ready(function () {
         if (state.text() === "Todo") {
             new_state = "In Progress"
         }
+        
        
         console.log(new_state)
     
