@@ -34,15 +34,19 @@ def update_status(task_id):
     return jsonify(result)
 
 
-
-
-
-
 @app.route("/create", methods=['POST'])
 def create():
     """ recieves post requests to add new task """
     data = request.get_json()
     db_helper.insert_new_task(data['description'],data['id'])
+    result = {'success': True, 'response': 'Done'}
+    return jsonify(result)
+
+@app.route("/update-desc", methods=['POST'])
+def update_desc():
+    """ recieves post requests to add new task """
+    data = request.get_json()
+    db_helper.update_teask_entry(data['description'],data['id'])
     result = {'success': True, 'response': 'Done'}
     return jsonify(result)
 
